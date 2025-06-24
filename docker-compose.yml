@@ -1,0 +1,41 @@
+services:
+  # Frontend service
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    volumes:
+      - ./frontend:/app
+      - shared_data:/app/shared
+  
+  # Backend service
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - CHARTS_DIR=/app/shared
+    networks:
+      - app-network
+    volumes:
+      - ./backend:/app
+      - shared_data:/app/shared
+
+volumes:
+  shared_data:
+
+networks:
+  app-network:
+    driver: bridge
