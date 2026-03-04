@@ -23,7 +23,7 @@ The **NVIDIA Research Assistant** is a generative AI system designed to assist f
 
 The system is built with a multi-agent architecture orchestrated by LangGraph, featuring a FastAPI backend for API services and a Streamlit frontend for user interaction. It supports natural language queries, metadata filtering by year and quarter, and multimodal output (text reports with visualizations). The project is deployed using Docker for scalability and ease of setup.
 
-This project was developed as part of Assignment 5A for the MSAI program, demonstrating proficiency in RAG and multimodal integration as core generative AI techniques.
+
 
 ## System Architecture
 
